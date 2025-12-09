@@ -1,0 +1,68 @@
+{
+    "hero": {
+        "headline": "Digital Alchemist & Creative Engineer",
+        "subheadline": "I build digital experiences that blend aesthetic beauty with engineering precision. Turning concepts into scalable, premium applications.",
+        "ctaText": "Explore My Work",
+        "ctaLink": "#projects"
+    },
+    "about": {
+        "title": "About Me",
+        "bio": "I am a Full Stack Developer with a passion for high-performance web applications. I specialize in Next.js, React, and creating fluid, interactive user interfaces that feel alive.",
+        "skills": [
+            "Next.js",
+            "React",
+            "TypeScript",
+            "Tailwind CSS",
+            "Node.js",
+            "Supabase",
+            "Framer Motion",
+            "GraphQL"
+        ]
+    },
+    "projects": [
+        {
+            "id": "1",
+            "title": "Lumina Dashboard",
+            "description": "A high-performance analytics dashboard featuring real-time data visualization and glassmorphic design system.",
+            "techStack": [
+                "Next.js",
+                "Tremor",
+                "Tailwind"
+            ],
+            "link": "https://github.com/example/lumina",
+            "featured": true
+        },
+        {
+            "id": "2",
+            "title": "Nexus E-Commerce",
+            "description": "Headless storefront built with Shopify and Next.js, optimized for Core Web Vitals and conversion.",
+            "techStack": [
+                "Next.js",
+                "Shopify",
+                "Zustand"
+            ],
+            "link": "https://github.com/example/nexus",
+            "featured": true
+        }
+    ],
+    "socials": [
+        {
+            "platform": "GitHub",
+            "url": "https://github.com/",
+            "icon": "Github"
+        },
+        {
+            "platform": "Twitter",
+            "url": "https://twitter.com/",
+            "icon": "Twitter"
+        },
+        {
+            "platform": "LinkedIn",
+            "url": "https://linkedin.com/",
+            "icon": "Linkedin"
+        }
+    ],
+    "contact": {
+        "email": "hello@example.com"
+    }
+}
