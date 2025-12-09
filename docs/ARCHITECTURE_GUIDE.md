@@ -61,10 +61,13 @@ We do not manually wire inputs. We use a **Smart Context-Driven System**.
 * **Rule:** Use variables for colors, spacing, and other design tokens.
 * **Rule:** Reuse tokens, css classes and styles across components.
 * **Source of Truth:** CSS Variables (`:root`) defined in `globals.css`.
+* **Guideline:** Use Modern UI design trend in 2025, use the latest design trends and best practices. eg: Glassmorphism, Neumorphism etc.
+* **Rule:** Setup should have the light and dark theme.
 * **Rule:** NEVER use arbitrary values (e.g., `w-[123px]`, `text-[#333]`).
 * **Usage:**
     * ❌ `text-gray-500` (What is gray-500? It might change).
     * ✅ `text-muted-foreground` (Semantic token).
+* **Reference:** [UI_UX_GUIDE.md](UI_UX_GUIDE.md)
 
 ## 6. Internationalization (i18n) 🌍
 * **Rule:** No hardcoded strings. ZERO.
@@ -95,7 +98,16 @@ We do not manually wire inputs. We use a **Smart Context-Driven System**.
 *  **Blurred Image Placeholder:** Use this for image loading.
 *  **Reference:** [Loader](loader.md)
 
-## 9. Common Packages
+## 9. Error handling
+ * **Rule:** Use the error handling system provided, ensure to have the error boundary in place.
+ * **Rule:** use error code, error category, error type, error message, error status code from the error handling system.
+ * **Rule:** Avoid direct string access to the error code, error category, error type, error message, error status code, use proper constants or enums or interfaces.
+ * **Rule:** Use the error handling system provided to create the errors.
+ * **Rule:** Error handling is implemented using a builder pattern. 
+ * **Rule:** If possible have a common utility function to capture and process the errors in the frontend apps;
+ * **Guideline:** Error Guide [ERROR_GUIDE.md](ERROR_GUIDE.md)
+
+## 10. Common Packages
 * Zod: For validation.
 * React Hook Form: For forms.
 * TanStack Query: For data fetching.
