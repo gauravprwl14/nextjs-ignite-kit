@@ -1,0 +1,90 @@
+---
+title: "Event-Driven Architecture in Practice"
+date: "2025-10-20"
+author: "Gaurav P."
+category: "architecture"
+excerpt: "Moving from request-response to event-driven systems. Real-world patterns and pitfalls to avoid."
+coverImage: "/images/blog/event-driven.jpg"
+---
+
+# Event-Driven Architecture in Practice
+
+Request-response is familiar. Events are powerful. Here's how to make the transition.
+
+## Why Event-Driven?
+
+Traditional synchronous systems create tight coupling:
+
+- Service A calls Service B, which calls Service C
+- If C fails, the whole chain fails
+- Scaling requires scaling everything
+
+Event-driven systems decouple:
+
+- Services publish events, not direct calls
+- Consumers process independently
+- Failures are isolated
+
+## Core Patterns
+
+### Pattern 1: Event Sourcing
+
+Store events, not just current state:
+
+```typescript
+// Instead of updating a user record directly
+await db.users.update({ id: 1, balance: 150 });
+
+// Store the event that caused the change
+await eventStore.append({
+  type: "FUNDS_DEPOSITED",
+  userId: 1,
+  amount: 50,
+  timestamp: Date.now(),
+});
+```
+
+**Benefits:**
+
+- Complete audit trail
+- Rebuild state at any point in time
+- Debugging is straightforward
+
+### Pattern 2: CQRS (Command Query Responsibility Segregation)
+
+Separate write and read models:
+
+- **Commands** mutate state through events
+- **Queries** read from optimized projections
+
+### Pattern 3: Saga Pattern
+
+For distributed transactions:
+
+1. Order Service creates order
+2. Payment Service reserves funds
+3. Inventory Service reserves items
+4. On success: confirm all
+5. On failure: compensating transactions
+
+## Pitfalls to Avoid
+
+### 1. Event Ordering
+
+Events may arrive out of order. Design for it.
+
+### 2. Exactly-Once Delivery
+
+It's a myth. Design for at-least-once with idempotency.
+
+### 3. Schema Evolution
+
+Events are forever. Plan versioning from day one.
+
+## When NOT to Use Events
+
+- Simple CRUD applications
+- Low-latency requirements
+- Small teams with limited ops capacity
+
+Start simple. Evolve when you feel the pain.
