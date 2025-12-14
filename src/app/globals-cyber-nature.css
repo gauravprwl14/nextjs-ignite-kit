@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+@plugin "tailwindcss-animate";
+
+:root {
+    /* Theme: Cyber Nature */
+    /* Deep moss greens, bioluminescent teals, charcoal backgrounds */
+
+    --background: #0c120c;
+    /* Deep Jungle Charcoal */
+    --foreground: #e0e7e0;
+    /* Mist White */
+
+    --card: #111a11;
+    /* Dark Moss */
+    --card-foreground: #e0e7e0;
+
+    --popover: #111a11;
+    --popover-foreground: #e0e7e0;
+
+    --primary: #2dd4bf;
+    /* Bioluminescent Teal */
+    --primary-foreground: #022c22;
+
+    --secondary: #1f2e1f;
+    /* Forest Shadow */
+    --secondary-foreground: #e0e7e0;
+
+    --muted: #1f2e1f;
+    --muted-foreground: #8aa58a;
+    /* Sage Gray */
+
+    --accent: #2dd4bf;
+    --accent-foreground: #022c22;
+
+    /* Custom Variables for this theme */
+    --accent-glow: 0 0 20px rgba(45, 212, 191, 0.3);
+    --glass-border: rgba(45, 212, 191, 0.1);
+
+    --destructive: #9f1239;
+    --destructive-foreground: #ffe4e6;
+
+    --border: #1f2e1f;
+    --input: #1f2e1f;
+    --ring: #2dd4bf;
+
+    --radius: 0.5rem;
+}
+
+@theme inline {
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
+    --color-popover: var(--popover);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-destructive: var(--destructive);
+    --color-destructive-foreground: var(--destructive-foreground);
+    --color-border: var(--border);
+    --color-input: var(--input);
+    --color-ring: var(--ring);
+
+    --radius-sm: calc(var(--radius) - 2px);
+    --radius-md: var(--radius);
+    --radius-lg: calc(var(--radius) + 2px);
+
+    --font-sans: var(--font-sans);
+    --font-heading: var(--font-heading);
+}
+
+body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
