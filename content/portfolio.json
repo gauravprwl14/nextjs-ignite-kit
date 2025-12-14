@@ -1,47 +1,81 @@
 {
     "hero": {
-        "headline": "Digital Alchemist & Creative Engineer",
-        "subheadline": "I build digital experiences that blend aesthetic beauty with engineering precision. Turning concepts into scalable, premium applications.",
-        "ctaText": "Explore My Work",
-        "ctaLink": "#projects"
+        "headline": "Strategic Technical Leadership for Enterprise Scale",
+        "subheadline": "I help organizations build scalable systems, high-performing engineering teams, and robust technical strategies.",
+        "ctaText": "View Engagement Models",
+        "ctaLink": "#services"
     },
     "about": {
-        "title": "About Me",
-        "bio": "I am a Full Stack Developer with a passion for high-performance web applications. I specialize in Next.js, React, and creating fluid, interactive user interfaces that feel alive.",
+        "title": "Principal Technical Consultant",
+        "bio": "With over 15 years of experience in distributed systems and cloud architecture, I partner with CTOs and engineering leaders to solve complex technical challenges. My focus is on delivering sustainable business value through engineering excellence, not just writing code.",
         "skills": [
-            "Next.js",
-            "React",
-            "TypeScript",
-            "Tailwind CSS",
-            "Node.js",
-            "Supabase",
-            "Framer Motion",
-            "GraphQL"
+            "System Architecture",
+            "Cloud Native Strategy",
+            "Technical Due Diligence",
+            "Engineering Leadership",
+            "Microservices Migration",
+            "Platform Engineering",
+            "Next.js / React Ecosystem",
+            "AWS / GCP Architecture"
         ]
     },
+    "services": [
+        {
+            "id": "fractional-cto",
+            "title": "Fractional CTO / VPE",
+            "description": "Strategic technical leadership for startups and scale-ups. I help define roadmap, hire key talent, and establish engineering culture.",
+            "icon": "Users"
+        },
+        {
+            "id": "architecture-review",
+            "title": "Architecture Modernization",
+            "description": "Comprehensive audit of existing systems with a roadmap for migration to modern, scalable patterns (microservices, serverless, edge).",
+            "icon": "Layers"
+        },
+        {
+            "id": "due-diligence",
+            "title": "Technical Due Diligence",
+            "description": "Deep-dive assessment of code quality, scalability, and security for investors and M&A activities.",
+            "icon": "Search"
+        }
+    ],
     "projects": [
         {
             "id": "1",
-            "title": "Lumina Dashboard",
-            "description": "A high-performance analytics dashboard featuring real-time data visualization and glassmorphic design system.",
+            "title": "Fintech Core Banking Migration",
+            "description": "Led the architectural migration of a legacy monolith to event-driven microservices for a Series D fintech, handling $5B+ annual transaction volume.",
             "techStack": [
-                "Next.js",
-                "Tremor",
-                "Tailwind"
+                "Event-Driven Architecture",
+                "Kafka",
+                "Go",
+                "Kubernetes"
             ],
-            "link": "https://github.com/example/lumina",
+            "link": "#",
             "featured": true
         },
         {
             "id": "2",
-            "title": "Nexus E-Commerce",
-            "description": "Headless storefront built with Shopify and Next.js, optimized for Core Web Vitals and conversion.",
+            "title": "Healthcare Data Platform",
+            "description": "Designed and implemented a HIPAA-compliant data lake and analytics platform processing 50TB+ of patient data.",
+            "techStack": [
+                "AWS Data Lake",
+                "Python",
+                "Spark",
+                "React"
+            ],
+            "link": "#",
+            "featured": true
+        },
+        {
+            "id": "3",
+            "title": "Global E-Commerce Replatform",
+            "description": "Orchestrated the headless commerce transition for a global retailer, improving site performance (LCP) by 60% and conversion by 15%.",
             "techStack": [
                 "Next.js",
-                "Shopify",
-                "Zustand"
+                "Shopify Plus",
+                "Edge Middleware"
             ],
-            "link": "https://github.com/example/nexus",
+            "link": "#",
             "featured": true
         }
     ],
@@ -52,17 +86,17 @@
             "icon": "Github"
         },
         {
-            "platform": "Twitter",
-            "url": "https://twitter.com/",
-            "icon": "Twitter"
-        },
-        {
             "platform": "LinkedIn",
             "url": "https://linkedin.com/",
             "icon": "Linkedin"
+        },
+        {
+            "platform": "Twitter",
+            "url": "https://twitter.com/",
+            "icon": "Twitter"
         }
     ],
     "contact": {
-        "email": "hello@example.com"
+        "email": "consulting@gaurav.com"
     }
 }
