@@ -1,0 +1,302 @@
+/* Nextra Theme - Premium Dark Mode */
+/* Matching the landing page's Neon Noir theme */
+
+/* Base Reset & Theme Application */
+:root {
+    --nx-bg: #030712;
+    --nx-text: #f8fafc;
+    --nx-text-muted: #94a3b8;
+    --nx-primary: #dc2626;
+    --nx-accent: #7c3aed;
+    --nx-border: rgba(255, 255, 255, 0.08);
+    --nx-card-bg: rgba(15, 23, 42, 0.6);
+}
+
+/* Override Nextra defaults */
+html {
+    background-color: var(--nx-bg) !important;
+}
+
+body {
+    background-color: var(--nx-bg) !important;
+    color: var(--nx-text) !important;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    min-height: 100vh;
+    background-image:
+        radial-gradient(ellipse 80% 50% at 20% 40%, rgba(220, 38, 38, 0.08), transparent 50%),
+        radial-gradient(ellipse 60% 40% at 80% 20%, rgba(124, 58, 237, 0.06), transparent 50%);
+    background-attachment: fixed;
+}
+
+/* Main content area */
+.nextra-content,
+main,
+article {
+    background-color: transparent !important;
+    color: var(--nx-text) !important;
+}
+
+/* Navigation & Sidebar */
+nav,
+.nextra-sidebar-container,
+aside {
+    background-color: var(--nx-bg) !important;
+    border-color: var(--nx-border) !important;
+}
+
+/* ========================= */
+/* Typography                */
+/* ========================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--nx-text) !important;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, var(--nx-text) 0%, var(--nx-text-muted) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+h2 {
+    font-size: 1.75rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--nx-border);
+}
+
+h3 {
+    font-size: 1.25rem;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+}
+
+p {
+    color: var(--nx-text-muted) !important;
+    line-height: 1.8;
+    font-size: 1.05rem;
+    margin-bottom: 1.25rem;
+}
+
+strong {
+    color: var(--nx-text) !important;
+    font-weight: 600;
+}
+
+em {
+    color: var(--nx-text-muted) !important;
+    font-style: italic;
+}
+
+/* Links */
+a {
+    color: var(--nx-primary) !important;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: #f87171 !important;
+    text-decoration: underline;
+}
+
+/* ========================= */
+/* Lists                     */
+/* ========================= */
+
+ul,
+ol {
+    color: var(--nx-text-muted) !important;
+    padding-left: 1.5rem;
+    margin-bottom: 1.25rem;
+}
+
+li {
+    margin-bottom: 0.5rem;
+    line-height: 1.7;
+}
+
+li::marker {
+    color: var(--nx-primary);
+}
+
+/* ========================= */
+/* Blockquotes               */
+/* ========================= */
+
+blockquote {
+    background: var(--nx-card-bg) !important;
+    border-left: 4px solid var(--nx-accent) !important;
+    padding: 1rem 1.5rem !important;
+    margin: 1.5rem 0 !important;
+    border-radius: 0 0.5rem 0.5rem 0;
+    backdrop-filter: blur(12px);
+}
+
+blockquote p {
+    color: var(--nx-text) !important;
+    font-style: italic;
+    margin-bottom: 0 !important;
+}
+
+/* ========================= */
+/* Code Blocks               */
+/* ========================= */
+
+pre,
+code {
+    font-family: 'SF Mono', 'Fira Code', 'JetBrains Mono', monospace !important;
+}
+
+/* Inline code */
+:not(pre) > code {
+    background: rgba(220, 38, 38, 0.15) !important;
+    color: var(--nx-primary) !important;
+    padding: 0.2rem 0.4rem !important;
+    border-radius: 0.25rem !important;
+    font-size: 0.9em !important;
+    border: 1px solid rgba(220, 38, 38, 0.2);
+}
+
+/* Code blocks */
+pre {
+    background: rgba(15, 23, 42, 0.8) !important;
+    border: 1px solid var(--nx-border) !important;
+    border-radius: 0.75rem !important;
+    padding: 1.25rem !important;
+    margin: 1.5rem 0 !important;
+    overflow-x: auto;
+    backdrop-filter: blur(12px);
+}
+
+pre code {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    font-size: 0.875rem !important;
+    line-height: 1.7 !important;
+}
+
+/* ========================= */
+/* Tables                    */
+/* ========================= */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+}
+
+th,
+td {
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--nx-border);
+    text-align: left;
+}
+
+th {
+    background: var(--nx-card-bg);
+    color: var(--nx-text);
+    font-weight: 600;
+}
+
+td {
+    color: var(--nx-text-muted);
+}
+
+tr:hover td {
+    background: rgba(30, 41, 59, 0.3);
+}
+
+/* ========================= */
+/* Horizontal Rule           */
+/* ========================= */
+
+hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--nx-border) 20%, var(--nx-border) 80%, transparent);
+    margin: 2rem 0;
+}
+
+/* ========================= */
+/* Header / Navigation       */
+/* ========================= */
+
+header,
+.nextra-nav-container {
+    background: rgba(3, 7, 18, 0.8) !important;
+    backdrop-filter: blur(12px) !important;
+    border-bottom: 1px solid var(--nx-border) !important;
+}
+
+/* Logo */
+header span,
+.nextra-nav-container span {
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+/* ========================= */
+/* Footer                    */
+/* ========================= */
+
+footer {
+    background: transparent !important;
+    border-top: 1px solid var(--nx-border) !important;
+    color: var(--nx-text-muted) !important;
+    padding: 2rem 0;
+}
+
+/* ========================= */
+/* Selection                 */
+/* ========================= */
+
+::selection {
+    background: var(--nx-primary);
+    color: white;
+}
+
+/* ========================= */
+/* Scrollbar                 */
+/* ========================= */
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--nx-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(148, 163, 184, 0.3);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(148, 163, 184, 0.5);
+}
+
+/* ========================= */
+/* Article Container         */
+/* ========================= */
+
+.nextra-body-container,
+.nextra-container {
+    max-width: 48rem !important;
+    margin: 0 auto;
+    padding: 2rem;
+}
