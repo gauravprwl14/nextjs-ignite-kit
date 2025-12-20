@@ -79,9 +79,9 @@ export default function AboutPage() {
         >
           <h2 className="text-3xl font-bold font-heading">Technical Expertise</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {about.skills.map((skill, index) => (
+            {about.skills.map((skill) => (
               <motion.div 
-                key={index}
+                key={skill}
                 variants={fadeIn}
                 className="flex items-center gap-3 p-4 rounded-xl bg-white/5 border border-white/10 hover:border-primary/50 transition-colors"
               >
@@ -102,13 +102,13 @@ export default function AboutPage() {
         >
           <div className="space-y-2">
             <h3 className="text-2xl font-bold text-white">Ready to scale your engineering?</h3>
-            <p className="text-white/70">Let's discuss how I can help your team achieve technical excellence.</p>
+            <p className="text-white/70">Let&apos;s discuss how I can help your team achieve technical excellence.</p>
           </div>
           <Link 
             href="/contact"
             className="px-8 py-4 rounded-xl bg-white text-black font-bold text-lg hover:bg-white/90 transition-transform active:scale-95 flex items-center gap-2"
           >
-            Let's Talk <ArrowRight className="w-5 h-5" />
+            Let&apos;s Talk <ArrowRight className="w-5 h-5" />
           </Link>
         </motion.div>
       </div>

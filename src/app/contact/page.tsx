@@ -1,8 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Mail, MessageSquare, Send, Github, Linkedin, Twitter } from "lucide-react"; // Note: Lucide icons might not have Twitter/Linkedin in some versions, sticking to standard icons or checking imports
-import Link from "next/link";
+import { ArrowRight, Mail, MessageSquare, Send } from "lucide-react";
 import portfolioData from "../../../content/portfolio.json";
 import { useState } from "react";
 
