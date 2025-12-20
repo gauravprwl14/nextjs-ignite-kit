@@ -13,6 +13,10 @@ interface BreadcrumbsProps {
 }
 
 export function Breadcrumbs({ items, className }: BreadcrumbsProps) {
+  if (!items.length) {
+    return null;
+  }
+
   return (
     <nav aria-label="Breadcrumb" className={cn("flex items-center gap-2", className)}>
       {items.map((item, index) => {
@@ -34,6 +38,7 @@ export function Breadcrumbs({ items, className }: BreadcrumbsProps) {
               </Link>
             ) : (
               <span
+                aria-current={isLast ? "page" : undefined}
                 className={cn(
                   "text-sm",
                   isLast ? "text-primary" : "text-muted-foreground"

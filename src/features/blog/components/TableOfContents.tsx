@@ -44,6 +44,7 @@ export function TableOfContents({ headings }: TableOfContentsProps) {
 
   useEffect(() => {
     // Initial check
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     handleScroll();
 
     window.addEventListener("scroll", handleScroll, { passive: true });

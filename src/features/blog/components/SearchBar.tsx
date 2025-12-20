@@ -5,16 +5,22 @@ import { Search, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface SearchBarProps {
-  onSearch: (query: string) => void;
-  placeholder?: string;
+  readonly onSearch: (query: string) => void;
+  readonly placeholder?: string;
+  readonly initialValue?: string;
 }
 
 export function SearchBar({
   onSearch,
   placeholder = "Search...",
+  initialValue = "",
 }: SearchBarProps) {
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState(initialValue);
   const [isFocused, setIsFocused] = useState(false);
+
+  useEffect(() => {
+    setQuery(initialValue);
+  }, [initialValue]);
   const inputRef = useRef<HTMLInputElement>(null);
   const debounceRef = useRef<NodeJS.Timeout | null>(null);
 
