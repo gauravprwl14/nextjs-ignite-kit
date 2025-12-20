@@ -24,6 +24,7 @@ export const BlogPostMetaSchema = z.object({
   coverImage: z.string().optional(),
   featured: z.boolean().default(false),
   readingTime: z.string().optional(),
+  tags: z.array(z.string()).optional(),
 });
 
 // Full blog post with content (after MDX processing)
