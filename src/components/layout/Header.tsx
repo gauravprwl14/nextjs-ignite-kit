@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
-import { ThemeToggle } from "./ThemeToggle";
+import { ThemeSwitcher } from "./ThemeSwitcher";
 
 const navigation = [
   { name: "Home", href: "/" },
@@ -80,7 +80,7 @@ export function Header() {
 
             {/* Right Actions */}
             <div className="hidden md:flex items-center gap-4">
-              <ThemeToggle />
+              <ThemeSwitcher />
               <Link
                 href="/contact"
                 className={cn(
@@ -95,7 +95,7 @@ export function Header() {
 
             {/* Mobile Actions */}
             <div className="flex md:hidden items-center gap-4">
-              <ThemeToggle />
+              <ThemeSwitcher />
               <button
                 type="button"
                 className="p-2 rounded-lg hover:bg-white/10 cursor-pointer z-50 w-[44px] h-[44px] flex flex-col justify-center items-center gap-[6px]"
