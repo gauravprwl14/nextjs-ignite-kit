@@ -68,8 +68,7 @@ export function TableOfContents({ headings }: TableOfContentsProps) {
       className="hidden lg:block sticky top-24 max-h-[calc(100vh-8rem)] overflow-y-auto"
       aria-label="Table of contents"
     >
-      <h4 className="text-sm font-semibold text-white/90 mb-4">On this page</h4>
-
+      <h4 className="text-sm font-semibold text-foreground mb-4">On this page</h4>
       <ul className="space-y-2">
         {filteredHeadings.map((heading) => (
           <li key={heading.id}>
@@ -77,11 +76,11 @@ export function TableOfContents({ headings }: TableOfContentsProps) {
               onClick={() => scrollToHeading(heading.id)}
               className={cn(
                 "block text-left text-sm transition-colors duration-200 w-full",
-                "hover:text-white",
+                "hover:text-foreground",
                 heading.level === 3 && "pl-4",
                 activeId === heading.id
                   ? "text-primary font-medium"
-                  : "text-white/50"
+                  : "text-muted-foreground"
               )}
             >
               {heading.text}

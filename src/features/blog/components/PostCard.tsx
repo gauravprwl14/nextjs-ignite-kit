@@ -44,7 +44,7 @@ export function PostCard({ post, layout = "horizontal", searchQuery }: PostCardP
       <div
         className={cn(
           "relative rounded-xl overflow-hidden shrink-0",
-          "bg-white/5 border border-white/10 transition-all duration-300",
+          "bg-secondary/50 border border-border transition-all duration-300",
           "group-hover:border-primary/30",
           isHorizontal
             ? "w-32 h-24 md:w-40 md:h-28"
@@ -67,7 +67,7 @@ export function PostCard({ post, layout = "horizontal", searchQuery }: PostCardP
       {/* Content */}
       <div className="flex-1 min-w-0">
         {/* Meta */}
-        <div className="flex items-center gap-2 text-xs text-white/50 mb-1.5">
+        <div className="flex items-center gap-2 text-xs text-muted-foreground mb-1.5">
           <span>{post.author.name}</span>
           <span>•</span>
           <time dateTime={post.date}>
@@ -82,7 +82,7 @@ export function PostCard({ post, layout = "horizontal", searchQuery }: PostCardP
         {/* Title with optional highlighting */}
         <h3
           className={cn(
-            "font-medium text-white transition-colors duration-200",
+            "font-medium text-foreground transition-colors duration-200",
             "group-hover:text-primary",
             "line-clamp-2",
             isHorizontal ? "text-sm md:text-base" : "text-base md:text-lg"
@@ -93,7 +93,7 @@ export function PostCard({ post, layout = "horizontal", searchQuery }: PostCardP
 
         {/* Reading time */}
         {post.readingTime && !isHorizontal && (
-          <p className="mt-2 text-xs text-white/40">{post.readingTime} read</p>
+          <p className="mt-2 text-xs text-muted-foreground">{post.readingTime} read</p>
         )}
       </div>
     </Link>

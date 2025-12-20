@@ -19,7 +19,7 @@ export function FeaturedPostCard({
       href={`/blog/${post.slug}`}
       className={cn(
         "group relative block rounded-2xl overflow-hidden",
-        "bg-white/5 border border-white/10 transition-all duration-300",
+        "bg-secondary border border-border transition-all duration-300",
         "hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10",
         isLarge ? "aspect-4/3" : "aspect-video"
       )}

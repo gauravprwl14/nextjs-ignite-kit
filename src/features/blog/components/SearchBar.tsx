@@ -69,14 +69,14 @@ export function SearchBar({
     <div
       className={cn(
         "relative flex items-center gap-2 px-4 py-2 rounded-lg",
-        "bg-white/5 border transition-all duration-200",
+        "bg-secondary/50 border transition-all duration-200",
         isFocused
           ? "border-primary/50 ring-2 ring-primary/20"
-          : "border-white/10 hover:border-white/20"
+          : "border-border hover:border-foreground/20"
       )}
     >
-      <Search className="w-4 h-4 text-white/40 shrink-0" />
-
+      <Search className="w-4 h-4 text-muted-foreground shrink-0" />
+      
       <input
         ref={inputRef}
         type="text"
@@ -85,13 +85,13 @@ export function SearchBar({
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
         placeholder={placeholder}
-        className="flex-1 bg-transparent text-sm text-white placeholder-white/40 outline-none min-w-[120px]"
+        className="flex-1 bg-transparent text-sm text-foreground placeholder:text-muted-foreground outline-none min-w-[120px]"
         aria-label="Search blog posts"
       />
 
       {/* Keyboard shortcut hint */}
       {!query && !isFocused && (
-        <kbd className="hidden sm:flex items-center gap-1 px-1.5 py-0.5 text-xs text-white/30 bg-white/5 rounded border border-white/10">
+        <kbd className="hidden sm:flex items-center gap-1 px-1.5 py-0.5 text-xs text-muted-foreground/70 bg-secondary rounded border border-border">
           <span className="text-[10px]">⌘</span>K
         </kbd>
       )}
@@ -100,10 +100,10 @@ export function SearchBar({
       {query && (
         <button
           onClick={handleClear}
-          className="p-1 rounded hover:bg-white/10 transition-colors cursor-pointer"
+          className="p-1 rounded hover:bg-secondary transition-colors cursor-pointer"
           aria-label="Clear search"
         >
-          <X className="w-3 h-3 text-white/50" />
+          <X className="w-3 h-3 text-muted-foreground" />
         </button>
       )}
     </div>

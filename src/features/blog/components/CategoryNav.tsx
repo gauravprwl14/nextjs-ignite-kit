@@ -56,7 +56,7 @@ export function CategoryNav({
         onClick={() => scroll("left")}
         className={cn(
           "shrink-0 p-2 rounded-full glass-panel transition-opacity duration-200 cursor-pointer",
-          "hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-primary",
+          "hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-primary",
           showLeftArrow ? "opacity-100" : "opacity-0 pointer-events-none"
         )}
         aria-label="Scroll categories left"
@@ -82,8 +82,8 @@ export function CategoryNav({
               "shrink-0 px-4 py-2 rounded-full text-sm font-medium cursor-pointer",
               "transition-all duration-200 whitespace-nowrap",
               activeCategory === category.id
-                ? "bg-white text-black"
-                : "bg-white/5 text-white/70 hover:bg-white/10 hover:text-white border border-white/10"
+                ? "bg-foreground text-background"
+                : "bg-secondary/50 text-muted-foreground hover:bg-secondary hover:text-foreground border border-border"
             )}
           >
             {category.name}
@@ -96,7 +96,7 @@ export function CategoryNav({
         onClick={() => scroll("right")}
         className={cn(
           "shrink-0 p-2 rounded-full glass-panel transition-opacity duration-200 cursor-pointer",
-          "hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-primary",
+          "hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-primary",
           showRightArrow ? "opacity-100" : "opacity-0 pointer-events-none"
         )}
         aria-label="Scroll categories right"
