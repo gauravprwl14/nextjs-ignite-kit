@@ -1,22 +1,29 @@
 {
     "hero": {
-        "headline": "Strategic Technical Leadership for Enterprise Scale",
-        "subheadline": "I help organizations build scalable systems, high-performing engineering teams, and robust technical strategies.",
-        "ctaText": "View Engagement Models",
-        "ctaLink": "#services"
+        "headline": "LET'S BUILD TOGETHER",
+        "subheadline": "Specializing in platform engineering, core banking, and technical strategy for high-stakes digital assets.",
+        "ctaText": "Get Started",
+        "ctaLink": "/contact",
+        "reelText": "Watch Reel",
+        "reelLink": "#",
+        "stats": [
+            { "value": "12+", "label": "Global Regions", "description": "High-availability deployments" },
+            { "value": "99.99%", "label": "SLA Uptime", "description": "Mission-critical environments" },
+            { "value": "Zero", "label": "Security Debt", "description": "Automated audit enforcement" }
+        ]
     },
     "about": {
-        "title": "Principal Technical Consultant",
-        "bio": "With over 15 years of experience in distributed systems and cloud architecture, I partner with CTOs and engineering leaders to solve complex technical challenges. My focus is on delivering sustainable business value through engineering excellence, not just writing code.",
+        "title": "Potential Business Owner",
+        "bio": "I don't just write code; I build businesses. With over 15 years of experience in distributed systems and product development, I partner with founders to turn vision into valuable technical assets. I bring the discipline of enterprise architecture to the agility of a startup.",
         "skills": [
-            "System Architecture",
-            "Cloud Native Strategy",
-            "Technical Due Diligence",
-            "Engineering Leadership",
-            "Microservices Migration",
-            "Platform Engineering",
-            "Next.js / React Ecosystem",
-            "AWS / GCP Architecture"
+            "Tech Asset Creation",
+            "Business-First Engineering",
+            "Scalable Architectures",
+            "Team Building",
+            "Speed to Market",
+            "Product Strategy",
+            "Next.js / React",
+            "Cloud Native"
         ]
     },
     "services": [
@@ -41,40 +48,47 @@
     ],
     "projects": [
         {
-            "id": "1",
-            "title": "Fintech Core Banking Migration",
-            "description": "Led the architectural migration of a legacy monolith to event-driven microservices for a Series D fintech, handling $5B+ annual transaction volume.",
+            "id": "hdfc-core",
+            "title": "Core Banking Modernization",
+            "description": "Strangler Fig migration of legacy Oracle Banking Platform monolith to Go microservices, reducing latency by 56% and enabling zero-downtime deployments.",
             "techStack": [
-                "Event-Driven Architecture",
-                "Kafka",
                 "Go",
-                "Kubernetes"
+                "Microservices",
+                "gRPC",
+                "Kubernetes",
+                "Redis"
             ],
+            "image": "/images/projects/hdfc-dashboard.png",
             "link": "#",
             "featured": true
         },
         {
-            "id": "2",
-            "title": "Healthcare Data Platform",
-            "description": "Designed and implemented a HIPAA-compliant data lake and analytics platform processing 50TB+ of patient data.",
+            "id": "tyfone-kyc",
+            "title": "Automated KYC/AML Platform",
+            "description": "Orchestration engine integrating 13+ identity providers (Persona, Experian) to automate 90% of verifications, reducing onboarding time from days to minutes.",
             "techStack": [
-                "AWS Data Lake",
-                "Python",
-                "Spark",
-                "React"
+                "Node.js",
+                "Orchestration",
+                "PostgreSQL",
+                "React",
+                "AWS"
             ],
+            "image": "/images/projects/tyfone-platform.png",
             "link": "#",
             "featured": true
         },
         {
-            "id": "3",
-            "title": "Global E-Commerce Replatform",
-            "description": "Orchestrated the headless commerce transition for a global retailer, improving site performance (LCP) by 60% and conversion by 15%.",
+            "id": "efg-lending",
+            "title": "Education Financing & BNPL",
+            "description": "Digital lending platform for education financing featuring inflation-adjusted loans, eNACH automated collections, and real-time eligibility checks.",
             "techStack": [
-                "Next.js",
-                "Shopify Plus",
-                "Edge Middleware"
+                "Fintech",
+                "React Native",
+                "Node.js",
+                "MongoDB",
+                "eNACH"
             ],
+            "image": "/images/projects/efg-automation.png",
             "link": "#",
             "featured": true
         }
