@@ -1,4 +1,4 @@
-export default {
+const themeConfig = {
     logo: <span>Premium Portfolio</span>,
     project: {
         link: 'https://github.com/shuding/nextra'
@@ -8,3 +8,5 @@ export default {
         text: 'Premium Portfolio © 2025'
     }
 }
+
+export default themeConfig
