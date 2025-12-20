@@ -3,6 +3,7 @@ import { Manrope, Syne } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Header, Footer } from "@/components/layout";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const manrope = Manrope({
   variable: "--font-sans",
@@ -33,9 +34,16 @@ export default function RootLayout({
           "antialiased bg-background text-foreground font-sans selection:bg-primary selection:text-primary-foreground"
         )}
       >
-        <Header />
-        {children}
-        <Footer />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Header />
+          {children}
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

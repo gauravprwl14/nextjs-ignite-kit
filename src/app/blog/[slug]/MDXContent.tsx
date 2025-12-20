@@ -47,7 +47,7 @@ export function MDXContent({ content }: MDXContentProps) {
 
           return isInline ? (
             <code
-              className="bg-white/10 px-1.5 py-0.5 rounded text-sm font-mono text-primary"
+              className="bg-secondary px-1.5 py-0.5 rounded text-sm font-mono text-primary"
               {...props}
             >
               {children}
@@ -57,7 +57,7 @@ export function MDXContent({ content }: MDXContentProps) {
               style={oneDark}
               language={match[1]}
               PreTag="div"
-              className="rounded-xl !bg-white/5 !p-4 border border-white/10"
+              className="rounded-xl !bg-[#282c34] !p-4 border border-zinc-800"
             >
               {String(children).replace(/\n$/, "")}
             </SyntaxHighlighter>
@@ -78,7 +78,7 @@ export function MDXContent({ content }: MDXContentProps) {
 
         // Blockquotes
         blockquote: ({ children }) => (
-          <blockquote className="border-l-4 border-primary pl-4 py-2 my-6 bg-white/5 rounded-r-lg">
+          <blockquote className="border-l-4 border-primary pl-4 py-2 my-6 bg-secondary/30 rounded-r-lg italic text-muted-foreground">
             {children}
           </blockquote>
         ),
@@ -90,12 +90,12 @@ export function MDXContent({ content }: MDXContentProps) {
           </div>
         ),
         th: ({ children }) => (
-          <th className="border border-white/10 bg-white/5 px-4 py-2 text-left font-semibold">
+          <th className="border border-border bg-secondary/50 px-4 py-2 text-left font-semibold">
             {children}
           </th>
         ),
         td: ({ children }) => (
-          <td className="border border-white/10 px-4 py-2">{children}</td>
+          <td className="border border-border px-4 py-2">{children}</td>
         ),
 
         // Lists
@@ -110,12 +110,12 @@ export function MDXContent({ content }: MDXContentProps) {
 
         // Paragraphs
         p: ({ children }) => (
-          <p className="text-white/80 leading-relaxed">{children}</p>
+          <p className="leading-relaxed mb-4">{children}</p>
         ),
 
         // Strong/Bold
         strong: ({ children }) => (
-          <strong className="font-semibold text-white">{children}</strong>
+          <strong className="font-semibold text-foreground">{children}</strong>
         ),
       }}
     >

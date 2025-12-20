@@ -26,16 +26,16 @@ export function BlogDetailClient({ post, categoryName }: BlogDetailClientProps) 
 
       {/* Header */}
       <header className="mb-12">
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 leading-tight">
           {post.title}
         </h1>
 
-        <p className="text-lg text-white/60 mb-8 max-w-3xl">{post.excerpt}</p>
+        <p className="text-lg text-muted-foreground mb-8 max-w-3xl">{post.excerpt}</p>
 
         {/* Author & Meta */}
-        <div className="flex items-center gap-4 pb-8 border-b border-white/10">
+        <div className="flex items-center gap-4 pb-8 border-b border-border">
           {/* Author Avatar */}
-          <div className="w-10 h-10 rounded-full overflow-hidden bg-white/10 flex items-center justify-center">
+          <div className="w-10 h-10 rounded-full overflow-hidden bg-secondary flex items-center justify-center">
             {post.author.avatar ? (
               <Image
                 src={post.author.avatar}
@@ -45,13 +45,13 @@ export function BlogDetailClient({ post, categoryName }: BlogDetailClientProps) 
                 className="object-cover"
               />
             ) : (
-              <User className="w-5 h-5 text-white/50" />
+              <User className="w-5 h-5 text-muted-foreground" />
             )}
           </div>
 
           <div className="flex-1">
-            <p className="text-sm font-medium text-white">{post.author.name}</p>
-            <div className="flex items-center gap-2 text-xs text-white/50">
+            <p className="text-sm font-medium text-foreground">{post.author.name}</p>
+            <div className="flex items-center gap-2 text-xs text-muted-foreground">
               <time dateTime={post.date}>
                 {new Date(post.date).toLocaleDateString("en-US", {
                   month: "short",
@@ -73,7 +73,7 @@ export function BlogDetailClient({ post, categoryName }: BlogDetailClientProps) 
       {/* Main Content with ToC Sidebar */}
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_250px] gap-12">
         {/* Article Content */}
-        <div className="prose prose-invert prose-lg max-w-none">
+        <div className="prose dark:prose-invert prose-lg max-w-none">
           <MDXContent content={post.content || ""} />
         </div>
 
@@ -86,10 +86,10 @@ export function BlogDetailClient({ post, categoryName }: BlogDetailClientProps) 
       </div>
 
       {/* Footer */}
-      <footer className="mt-16 pt-8 border-t border-white/10">
+      <footer className="mt-16 pt-8 border-t border-border">
         <Link
           href="/blog"
-          className="inline-flex items-center gap-2 text-sm text-white/60 hover:text-primary transition-colors"
+          className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
         >
           ← Back to all posts
         </Link>

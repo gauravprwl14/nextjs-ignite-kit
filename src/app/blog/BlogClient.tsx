@@ -114,7 +114,7 @@ export function BlogClient({
       {showFilteredView ? (
         /* Filtered Results View */
         <section className="pb-16">
-          <p className="text-sm text-white/50 mb-6">
+          <p className="text-sm text-muted-foreground mb-6">
             {filteredPosts.length} post{filteredPosts.length !== 1 ? "s" : ""}{" "}
             found
           </p>
@@ -127,7 +127,7 @@ export function BlogClient({
 
           {filteredPosts.length === 0 && (
             <div className="text-center py-16">
-              <p className="text-white/60">No posts found matching your criteria.</p>
+              <p className="text-muted-foreground">No posts found matching your criteria.</p>
               <button
                 onClick={() => {
                   setActiveCategory("all");
@@ -173,12 +173,12 @@ export function BlogClient({
               return (
                 <section key={category.id} className="mb-16">
                   <div className="flex items-center justify-between mb-8">
-                    <h2 className="text-2xl font-semibold text-white">
+                    <h2 className="text-2xl font-semibold text-foreground">
                       {category.name}
                     </h2>
                     <button
                       onClick={() => handleCategoryChange(category.id)}
-                      className="text-sm text-white/60 hover:text-primary transition-colors"
+                      className="text-sm text-muted-foreground hover:text-primary transition-colors"
                     >
                       See All Posts →
                     </button>
