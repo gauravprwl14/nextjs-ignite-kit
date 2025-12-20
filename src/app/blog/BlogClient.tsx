@@ -52,7 +52,7 @@ export function BlogClient({
   // Update URL when filters change
   const updateUrl = useCallback(
     (category: string, search: string) => {
-      const params = new URLSearchParams(searchParams.toString());
+      const params = new URLSearchParams(searchParams?.toString() || "");
 
       if (category && category !== "all") {
         params.set("category", category);

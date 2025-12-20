@@ -48,7 +48,7 @@
     --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   }
 
-  .dark {
+  [data-theme='dark'] {
     /* Theme: Neon Noir (Dark Mode) */
     --background: #030712;
     --foreground: #f8fafc;
@@ -127,13 +127,25 @@ body {
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    /* Premium ambient gradient background */
+    background-attachment: fixed;
+    min-height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Default Neon-Noir Gradient (Applied to Light and as fallback) */
+:root body {
     background-image:
         radial-gradient(ellipse 80% 50% at 20% 40%, rgba(220, 38, 38, 0.08), transparent 50%),
         radial-gradient(ellipse 60% 40% at 80% 20%, rgba(124, 58, 237, 0.06), transparent 50%),
         radial-gradient(ellipse 50% 30% at 50% 80%, rgba(30, 41, 59, 0.5), transparent 50%);
-    background-attachment: fixed;
-    min-height: 100vh;
+}
+
+/* Dark Theme Specific Background for Neon-Noir */
+[data-theme='dark'] body {
+    background-image:
+        radial-gradient(ellipse 80% 50% at 20% 40%, rgba(220, 38, 38, 0.12), transparent 50%),
+        radial-gradient(ellipse 60% 40% at 80% 20%, rgba(124, 58, 237, 0.1), transparent 50%),
+        radial-gradient(ellipse 50% 30% at 50% 80%, rgba(15, 23, 42, 0.8), transparent 50%);
 }
 
 /* ========================= */

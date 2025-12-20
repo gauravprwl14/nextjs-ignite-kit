@@ -1,0 +1,59 @@
+@layer base {
+  [data-theme='nebula'] {
+    /* Main Background: Very dark charcoal/off-black with cool indigo tint */
+    --background: #0a0b12;
+    --foreground: #e2e8f0;
+
+    /* Secondary Dark: Slightly lighter for cards */
+    --card: #151a25;
+    --card-foreground: #e2e8f0;
+
+    --popover: #151a25;
+    --popover-foreground: #e2e8f0;
+
+    /* Glow Colors as Primary/Accent */
+    /* Primary: The "Core Glow" Red from Bottom Right (fiery red) */
+    --primary: #ef4444; 
+    --primary-foreground: #ffffff;
+
+    /* Secondary: The "Smoky Blue" */
+    --secondary: #2c3558;
+    --secondary-foreground: #ffffff;
+
+    --muted: #1e293b;
+    --muted-foreground: #94a3b8;
+
+    /* Accent: The "Deep Violet/Plum" */
+    --accent: #7c3aed; /* Violet */
+    --accent-foreground: #ffffff;
+
+    --destructive: #7f1d1d;
+    --destructive-foreground: #fef2f2;
+
+    --border: rgba(255, 255, 255, 0.1);
+    --input: rgba(255, 255, 255, 0.1);
+    --ring: #ef4444;
+
+    /* Glassmorphism overrides for Nebula */
+    --glass-bg: rgba(21, 26, 37, 0.6);
+    --glass-bg-hover: rgba(44, 53, 88, 0.4); /* Blue tint on hover */
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-blur: 16px;
+  }
+}
+
+/* Nebula Background Effect */
+[data-theme='nebula'] body {
+  background-color: var(--background);
+  background-image: 
+    /* Orbs/Stars - subtle noise or small dots could go here, but using gradients for now */
+    /* Top Left: Smoky Blue */
+    radial-gradient(circle at 0% 0%, rgba(44, 53, 88, 0.4) 0%, transparent 50%),
+    /* Top Right: Deep Violet */
+    radial-gradient(circle at 100% 0%, rgba(64, 42, 69, 0.3) 0%, transparent 50%),
+    /* Bottom Right: Fiery Red */
+    radial-gradient(circle at 100% 100%, rgba(117, 16, 26, 0.3) 0%, transparent 50%),
+    /* Center Deep Dark */
+    radial-gradient(circle at 50% 50%, rgba(10, 11, 18, 0.8) 0%, transparent 100%);
+  background-attachment: fixed;
+}

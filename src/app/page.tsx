@@ -1,9 +1,17 @@
+// Forced update to resolve stale import cache
 "use client";
 
 import { motion, Variants } from "framer-motion";
 import { ArrowRight, Cpu, Globe, Layers, Zap, Users, Search, Target } from "lucide-react";
 import Link from "next/link";
 import portfolioData from "../../content/portfolio.json";
+import { ValueProposition } from "@/components/home/ValueProposition";
+import { TechStack } from "@/components/home/TechStack";
+import { ArchitectureSpotlight } from "@/components/home/ArchitectureSpotlight";
+import { ExpertiseMatrix } from "@/components/home/ExpertiseMatrix";
+import { StrategicDashboard } from "@/components/home/StrategicDashboard";
+import { LandingStats } from "@/components/home/LandingStats";
+import { ErrorBoundary } from "@/components/common/ErrorBoundary";
 
 const container: Variants = {
   hidden: { opacity: 0 },
@@ -36,41 +44,61 @@ export default function Home() {
         variants={container}
         initial="hidden"
         animate="show"
-        className="max-w-7xl mx-auto space-y-32"
+        className="max-w-7xl mx-auto space-y-16"
       >
         {/* Hero Section */}
-        <section className="relative z-10 flex flex-col justify-center min-h-[60vh]">
-          <motion.div variants={item}>
-            <span className="inline-block py-1 px-3 rounded-full border border-primary/30 bg-primary/10 text-primary text-xs font-medium tracking-wider mb-6">
-              AVAILABLE FOR NEW ENGAGEMENTS
-            </span>
-          </motion.div>
+        <section className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-4 items-center min-h-[50vh] py-8">
+          <div>
+            <motion.div variants={item}>
+              <span className="inline-block py-1 px-3 rounded-full border border-primary/30 bg-primary/10 text-primary text-xs font-medium tracking-wider mb-6">
+                AVAILABLE FOR NEW ENGAGEMENTS
+              </span>
+            </motion.div>
 
-          <motion.h1
-            variants={item}
-            className="text-6xl md:text-8xl font-heading font-bold tracking-tight leading-none mb-6 bg-gradient-to-r from-foreground via-foreground/80 to-foreground/40 bg-clip-text text-transparent"
-          >
-            Principal <br />
-            <span className="text-primary/90">Technical Consultant</span>
-          </motion.h1>
+            <motion.h1
+              variants={item}
+              className="text-6xl md:text-8xl lg:text-[100px] font-heading font-bold tracking-tight leading-none mb-6 bg-linear-to-r from-foreground via-foreground/90 to-foreground/40 bg-clip-text text-transparent uppercase"
+            >
+              {hero.headline.split(' ').slice(0, 2).join(' ')} <br />
+              <span className="text-primary/90">{hero.headline.split(' ').slice(2).join(' ')}</span>
+            </motion.h1>
 
-          <motion.p
-            variants={item}
-            className="text-xl md:text-2xl text-muted-foreground max-w-2xl font-light leading-relaxed mb-10"
-          >
-            {hero.subheadline}
-          </motion.p>
+            <motion.p
+              variants={item}
+              className="text-xl md:text-2xl text-muted-foreground max-w-xl font-light leading-relaxed mb-10"
+            >
+              {hero.subheadline}
+            </motion.p>
 
-          <motion.div variants={item} className="flex gap-4">
-            <Link href="/blog" className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-primary px-8 font-medium text-primary-foreground shadow transition-all hover:bg-primary/90 hover:ring-2 hover:ring-primary hover:ring-offset-2 hover:ring-offset-background">
-              <span className="mr-2">Read Tech Insights</span>
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-            </Link>
-            <Link href="/contact" className="h-12 px-8 flex items-center rounded-md border border-input bg-background/50 backdrop-blur-sm hover:bg-accent hover:text-accent-foreground transition-colors">
-              Request Consultation
-            </Link>
+            <motion.div variants={item} className="flex flex-wrap gap-4">
+              <Link href={hero.ctaLink} className="h-14 px-10 flex items-center rounded-full bg-white text-black font-bold hover:bg-white/90 transition-all active:scale-95">
+                {hero.ctaText}
+              </Link>
+              <Link href={hero.reelLink} className="group h-14 px-10 flex items-center gap-3 rounded-full border border-white/20 bg-white/5 backdrop-blur-md hover:bg-white/10 transition-all active:scale-95">
+                <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center group-hover:bg-primary/30 transition-colors">
+                  <Zap className="w-4 h-4 text-primary fill-primary" />
+                </div>
+                <span className="font-bold">{hero.reelText}</span>
+              </Link>
+            </motion.div>
+          </div>
+
+          <motion.div variants={item} className="hidden lg:block relative">
+             <StrategicDashboard />
           </motion.div>
         </section>
+
+        <LandingStats stats={hero.stats} />
+
+        <ErrorBoundary>
+          <ArchitectureSpotlight />
+        </ErrorBoundary>
+
+        <ValueProposition />
+        
+        <ExpertiseMatrix />
+
+        <TechStack />
 
         {/* Services / Engagement Models */}
         <section>
@@ -83,7 +111,10 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {services.map((service) => {
-              const Icon = service.icon === 'Users' ? Users : service.icon === 'Layers' ? Layers : Search;
+              let Icon = Search;
+              if (service.icon === 'Users') Icon = Users;
+              else if (service.icon === 'Layers') Icon = Layers;
+              
               return (
                 <motion.div
                   key={service.id}

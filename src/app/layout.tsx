@@ -1,16 +1,14 @@
 import type { Metadata } from "next";
-import { Manrope, Syne } from "next/font/google";
+import { Space_Grotesk } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Header, Footer } from "@/components/layout";
 import { ThemeProvider } from "@/components/theme-provider";
 
-const manrope = Manrope({
-  variable: "--font-sans",
-  subsets: ["latin"],
-});
+const geistSans = GeistSans;
 
-const syne = Syne({
+const spaceGrotesk = Space_Grotesk({
   variable: "--font-heading",
   subsets: ["latin"],
 });
@@ -26,16 +24,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          manrope.variable,
-          syne.variable,
+          geistSans.variable,
+          spaceGrotesk.variable,
           "antialiased bg-background text-foreground font-sans selection:bg-primary selection:text-primary-foreground"
         )}
+        suppressHydrationWarning
       >
         <ThemeProvider
-          attribute="class"
+          attribute="data-theme"
           defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
