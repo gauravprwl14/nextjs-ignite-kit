@@ -4,6 +4,14 @@ import { useMemo, useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Zap, Database, Terminal, BarChart3 } from "lucide-react";
 
+/**
+ * Strategic Dashboard Component.
+ * Visualizes system metrics and network topology using an advanced HUD interface.
+ * Features:
+ * - Real-time animated heatmap
+ * - Dynamic network node graph
+ * - Interactive HUD elements
+ */
 export function StrategicDashboard() {
   const [isMounted, setIsMounted] = useState(false);
 
@@ -36,7 +44,7 @@ export function StrategicDashboard() {
       <motion.div
         initial={{ scale: 0.9, opacity: 0, rotateX: 10 }}
         animate={{ scale: 1, opacity: 1, rotateX: 0 }}
-        className="relative z-10 w-full h-full glass-panel rounded-[2rem] border border-white/10 p-6 shadow-2xl backdrop-blur-3xl overflow-hidden bg-black/40"
+        className="relative z-10 w-full h-full glass-panel rounded-4xl border border-white/10 p-6 shadow-2xl backdrop-blur-3xl overflow-hidden bg-black/40"
       >
         {/* Terminal Header */}
         <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
