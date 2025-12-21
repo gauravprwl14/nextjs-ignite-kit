@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js Ignite Kit 🚀
 
-## Getting Started
+A premium Next.js 15+ starter kit for high-performance SaaS and personal portfolios.
 
-First, run the development server:
+## 🛠 Features
+
+- **Framework**: Next.js 15+ (App Router)
+- **Styling**: Tailwind CSS 4
+- **Animation**: Framer Motion
+- **Icons**: Lucide React
+- **Forms**: React Hook Form + Zod
+- **Documentation**: Nextra 4
+- **Testing**: Vitest + React Testing Library
+- **Architecture**: Domain-Driven Design / Features-first approach
+- **CI/CD**: Husky + lint-staged
+- **Internationalization**: Custom backend-driven i18n
+
+## 🚀 Getting Started
+
+### Local Development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Containerized Development (Podman)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+# Start dev environment with hot-reloading
+npm run container:dev
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Test production build locally
+npm run container:prod
+```
 
-## Learn More
+## 📚 Documentation
 
-To learn more about Next.js, take a look at the following resources:
+Detailed documentation is available in the `docs/` folder:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [Setup Guide](file:///Users/gauravporwal/Sites/projects/gp/nextjs-ignite-kit/docs/SETUP_GUIDE.md)
+- [Architecture Overview](file:///Users/gauravporwal/Sites/projects/gp/nextjs-ignite-kit/docs/ARCHITECTURE_OVERVIEW.md)
+- [Component System](file:///Users/gauravporwal/Sites/projects/gp/nextjs-ignite-kit/docs/COMPONENT_SYSTEM.md)
+- [Testing Handbook](file:///Users/gauravporwal/Sites/projects/gp/nextjs-ignite-kit/docs/TESTING_HANDBOOK.md)
+- [Container Guide](file:///Users/gauravporwal/Sites/projects/gp/nextjs-ignite-kit/docs/CONTAINER_GUIDE.md)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🌍 Internationalization (i18n)
 
-## Deploy on Vercel
+The project includes a performant, remote-backend-ready i18n system.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Storage**: Translations are fetched via `src/lib/i18n/service.ts` (currently mocked).
+- **Detection**: `middleware.ts` automatically detects locale from Cookies (`NEXT_LOCALE`) or Headers.
+- **Usage**:
+  ```tsx
+  import { useTranslation } from "@/components/providers/I18nProvider";
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+  export function MyComponent() {
+    const { t } = useTranslation();
+    return <h1>{t('hero.title')}</h1>;
+  }
+  ```
+
+## 🧪 Testing
+
+```bash
+npm run test           # Run all tests
+npm run test:watch     # Interactive mode
+npm run test:coverage  # Coverage report
+```
+
+## 🚢 Deployment
+
+The project is optimized for deployment on **Vercel** and other platforms that support Next.js standalone output.
+
+---
+Built with ❤️ for rapid technical execution.

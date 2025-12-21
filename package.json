@@ -10,7 +10,10 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
-    "prepare": "husky"
+    "prepare": "husky",
+    "container:dev": "podman compose up app-dev",
+    "container:prod": "podman compose -f docker-compose.prod.yml up --build",
+    "container:down": "podman compose down"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
