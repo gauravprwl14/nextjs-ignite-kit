@@ -18,7 +18,7 @@
         "name": "Gaurav P.",
         "avatar": "/images/authors/gaurav.jpg"
       },
-      "coverImage": "/images/blog/serverless.jpg",
+      "coverImage": "/images/blog/serverless.png",
       "featured": true,
       "readingTime": "5 min"
     },
@@ -32,7 +32,7 @@
         "name": "Gaurav P.",
         "avatar": "/images/authors/gaurav.jpg"
       },
-      "coverImage": "/images/blog/microservices.jpg",
+      "coverImage": "/images/blog-placeholder.png",
       "featured": true,
       "readingTime": "8 min"
     },
@@ -46,7 +46,7 @@
         "name": "Gaurav P.",
         "avatar": "/images/authors/gaurav.jpg"
       },
-      "coverImage": "/images/blog/distributed-teams.jpg",
+      "coverImage": "/images/blog-placeholder.png",
       "featured": true,
       "readingTime": "6 min"
     },
@@ -60,7 +60,7 @@
         "name": "Gaurav P.",
         "avatar": "/images/authors/gaurav.jpg"
       },
-      "coverImage": "/images/blog/fintech-case.jpg",
+      "coverImage": "/images/blog-placeholder.png",
       "featured": true,
       "readingTime": "10 min"
     },
@@ -74,7 +74,7 @@
         "name": "Gaurav P.",
         "avatar": "/images/authors/gaurav.jpg"
       },
-      "coverImage": "/images/blog/ai-enterprise.jpg",
+      "coverImage": "/images/blog-placeholder.png",
       "featured": false,
       "readingTime": "7 min"
     },
@@ -88,7 +88,7 @@
         "name": "Gaurav P.",
         "avatar": "/images/authors/gaurav.jpg"
       },
-      "coverImage": "/images/blog/design-systems.jpg",
+      "coverImage": "/images/blog-placeholder.png",
       "featured": false,
       "readingTime": "6 min"
     },
@@ -102,7 +102,7 @@
         "name": "Gaurav P.",
         "avatar": "/images/authors/gaurav.jpg"
       },
-      "coverImage": "/images/blog/tech-debt.jpg",
+      "coverImage": "/images/blog-placeholder.png",
       "featured": false,
       "readingTime": "5 min"
     },
@@ -116,7 +116,7 @@
         "name": "Gaurav P.",
         "avatar": "/images/authors/gaurav.jpg"
       },
-      "coverImage": "/images/blog/culture.jpg",
+      "coverImage": "/images/blog-placeholder.png",
       "featured": false,
       "readingTime": "8 min"
     },
@@ -130,7 +130,7 @@
         "name": "Gaurav P.",
         "avatar": "/images/authors/gaurav.jpg"
       },
-      "coverImage": "/images/blog/event-driven.jpg",
+      "coverImage": "/images/blog-placeholder.png",
       "featured": false,
       "readingTime": "7 min"
     },
@@ -144,7 +144,7 @@
         "name": "Gaurav P.",
         "avatar": "/images/authors/gaurav.jpg"
       },
-      "coverImage": "/images/blog/rsc.jpg",
+      "coverImage": "/images/blog-placeholder.png",
       "featured": false,
       "readingTime": "9 min"
     },
@@ -158,7 +158,7 @@
         "name": "Gaurav P.",
         "avatar": "/images/authors/gaurav.jpg"
       },
-      "coverImage": "/images/blog/healthcare-api.jpg",
+      "coverImage": "/images/blog-placeholder.png",
       "featured": false,
       "readingTime": "12 min"
     },
@@ -172,7 +172,7 @@
         "name": "Gaurav P.",
         "avatar": "/images/authors/gaurav.jpg"
       },
-      "coverImage": "/images/blog/edge-computing.jpg",
+      "coverImage": "/images/blog-placeholder.png",
       "featured": false,
       "readingTime": "6 min"
     }
