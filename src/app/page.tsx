@@ -12,6 +12,7 @@ import { ExpertiseMatrix } from "@/components/home/ExpertiseMatrix";
 import { StrategicDashboard } from "@/components/home/StrategicDashboard";
 import { LandingStats } from "@/components/home/LandingStats";
 import { ErrorBoundary } from "@/components/common/ErrorBoundary";
+import { useTranslation } from "@/components/providers/I18nProvider";
 
 const container: Variants = {
   hidden: { opacity: 0 },
@@ -29,8 +30,19 @@ const item: Variants = {
   show: { y: 0, opacity: 1, transition: { type: "spring", stiffness: 50 } },
 };
 
+/**
+ * Landing Page Component.
+ * Serves as the main entry point for the portfolio, featuring:
+ * - Hero section with i18n support
+ * - Strategic Dashboard visualization
+ * - Services and Competencies grid
+ */
 export default function Home() {
   const { hero, services, projects } = portfolioData;
+  const { t } = useTranslation();
+
+  const heroTitle = t('hero.title');
+  const heroSubtitle = t('hero.subtitle');
 
   return (
     <main className="min-h-screen pt-20 p-6 md:p-12 lg:p-24 overflow-hidden relative">
@@ -59,20 +71,20 @@ export default function Home() {
               variants={item}
               className="text-6xl md:text-8xl lg:text-[100px] font-heading font-bold tracking-tight leading-none mb-6 bg-linear-to-r from-foreground via-foreground/90 to-foreground/40 bg-clip-text text-transparent uppercase"
             >
-              {hero.headline.split(' ').slice(0, 2).join(' ')} <br />
-              <span className="text-primary/90">{hero.headline.split(' ').slice(2).join(' ')}</span>
+              {heroTitle.split(' ').slice(0, 2).join(' ')} <br />
+              <span className="text-primary/90">{heroTitle.split(' ').slice(2).join(' ')}</span>
             </motion.h1>
 
             <motion.p
               variants={item}
               className="text-xl md:text-2xl text-muted-foreground max-w-xl font-light leading-relaxed mb-10"
             >
-              {hero.subheadline}
+              {heroSubtitle}
             </motion.p>
 
             <motion.div variants={item} className="flex flex-wrap gap-4">
               <Link href={hero.ctaLink} className="h-14 px-10 flex items-center rounded-full bg-white text-black font-bold hover:bg-white/90 transition-all active:scale-95">
-                {hero.ctaText}
+                {t('common.getStarted')}
               </Link>
               <Link href={hero.reelLink} className="group h-14 px-10 flex items-center gap-3 rounded-full border border-white/20 bg-white/5 backdrop-blur-md hover:bg-white/10 transition-all active:scale-95">
                 <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center group-hover:bg-primary/30 transition-colors">
