@@ -9,10 +9,10 @@ import { ValueProposition } from "@/components/home/ValueProposition";
 import { TechStack } from "@/components/home/TechStack";
 import { ArchitectureSpotlight } from "@/components/home/ArchitectureSpotlight";
 import { ExpertiseMatrix } from "@/components/home/ExpertiseMatrix";
-import { StrategicDashboard } from "@/components/home/StrategicDashboard";
 import { LandingStats } from "@/components/home/LandingStats";
 import { ErrorBoundary } from "@/components/common/ErrorBoundary";
 import { useTranslation } from "@/components/providers/I18nProvider";
+import { HeroSelector } from "@/components/hero";
 
 const container: Variants = {
   hidden: { opacity: 0 },
@@ -41,66 +41,20 @@ export default function Home() {
   const { hero, services, projects } = portfolioData;
   const { t } = useTranslation();
 
-  const heroTitle = t('hero.title');
-  const heroSubtitle = t('hero.subtitle');
-
   return (
-    <main className="min-h-screen pt-20 p-6 md:p-12 lg:p-24 overflow-hidden relative">
-      {/* Background Ambience */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
-        <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px] mix-blend-screen animate-pulse" />
-        <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-blue-900/10 rounded-full blur-[120px] mix-blend-screen" />
-      </div>
+    <main className="min-h-screen overflow-hidden relative">
+      {/* Hero Section - Dynamic via HeroSelector */}
+      <HeroSelector />
 
-      <motion.div
-        variants={container}
-        initial="hidden"
-        animate="show"
-        className="max-w-7xl mx-auto space-y-16"
-      >
-        {/* Hero Section */}
-        <section className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-4 items-center min-h-[50vh] py-8">
-          <div>
-            <motion.div variants={item}>
-              <span className="inline-block py-1 px-3 rounded-full border border-primary/30 bg-primary/10 text-primary text-xs font-medium tracking-wider mb-6">
-                AVAILABLE FOR NEW ENGAGEMENTS
-              </span>
-            </motion.div>
-
-            <motion.h1
-              variants={item}
-              className="text-6xl md:text-8xl lg:text-[100px] font-heading font-bold tracking-tight leading-none mb-6 bg-linear-to-r from-foreground via-foreground/90 to-foreground/40 bg-clip-text text-transparent uppercase"
-            >
-              {heroTitle.split(' ').slice(0, 2).join(' ')} <br />
-              <span className="text-primary/90">{heroTitle.split(' ').slice(2).join(' ')}</span>
-            </motion.h1>
-
-            <motion.p
-              variants={item}
-              className="text-xl md:text-2xl text-muted-foreground max-w-xl font-light leading-relaxed mb-10"
-            >
-              {heroSubtitle}
-            </motion.p>
-
-            <motion.div variants={item} className="flex flex-wrap gap-4">
-              <Link href={hero.ctaLink} className="h-14 px-10 flex items-center rounded-full bg-white text-black font-bold hover:bg-white/90 transition-all active:scale-95">
-                {t('common.getStarted')}
-              </Link>
-              <Link href={hero.reelLink} className="group h-14 px-10 flex items-center gap-3 rounded-full border border-white/20 bg-white/5 backdrop-blur-md hover:bg-white/10 transition-all active:scale-95">
-                <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center group-hover:bg-primary/30 transition-colors">
-                  <Zap className="w-4 h-4 text-primary fill-primary" />
-                </div>
-                <span className="font-bold">{hero.reelText}</span>
-              </Link>
-            </motion.div>
-          </div>
-
-          <motion.div variants={item} className="hidden lg:block relative">
-             <StrategicDashboard />
-          </motion.div>
-        </section>
-
-        <LandingStats stats={hero.stats} />
+      <div className="p-6 md:p-12 lg:p-24">
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="max-w-7xl mx-auto space-y-16"
+        >
+          <LandingStats stats={hero.stats} />
 
         <ErrorBoundary>
           <ArchitectureSpotlight />
@@ -269,7 +223,8 @@ export default function Home() {
             ))}
           </div>
         </section>
-      </motion.div>
+        </motion.div>
+      </div>
     </main>
   );
 }
