@@ -1,0 +1,82 @@
+---
+title: "Case Study: Healthcare API Platform"
+date: "2025-10-08"
+author: "Gaurav P."
+category: "case-studies"
+excerpt: "Building a HIPAA-compliant API gateway serving 50M+ daily requests with 99.99% uptime."
+coverImage: "/images/blog/healthcare-api.jpg"
+---
+
+# Case Study: Healthcare API Platform
+
+A major healthcare provider needed to modernize their API infrastructure while maintaining strict compliance.
+
+## The Challenge
+
+**Existing State:**
+
+- 15-year-old monolithic API
+- 300+ integrations with hospitals and labs
+- No downtime tolerance
+- HIPAA compliance mandatory
+
+**Goals:**
+
+- Handle 50M+ daily requests
+- 99.99% uptime SLA
+- Sub-100ms p95 latency
+- Zero data breaches
+
+## Architecture Decisions
+
+### Decision 1: Edge-First
+
+Deployed API gateways at edge locations:
+
+| Location   | Purpose           |
+| ---------- | ----------------- |
+| US-East    | Primary ingress   |
+| US-West    | Secondary ingress |
+| US-Central | Failover          |
+
+### Decision 2: Zero-Trust Security
+
+Every request authenticated and encrypted:
+
+```yaml
+ingress:
+  mtls: required
+  jwt_validation: strict
+  rate_limiting:
+    per_partner: 1000/min
+    global: 100000/min
+```
+
+### Decision 3: Strangler Pattern Migration
+
+We didn't rewrite. We strangled:
+
+1. Put new gateway in front of legacy
+2. Route by feature flag
+3. Migrate endpoint by endpoint
+4. Retire legacy incrementally
+
+## Results
+
+After 18 months:
+
+| Metric             | Before | After  |
+| ------------------ | ------ | ------ |
+| Daily Requests     | 10M    | 50M    |
+| P95 Latency        | 450ms  | 72ms   |
+| Uptime             | 99.5%  | 99.99% |
+| Security Incidents | 3/year | 0      |
+
+## Key Learnings
+
+1. **Never big bang migrate** - Incremental is always safer
+2. **Invest in observability early** - You can't improve what you can't measure
+3. **Compliance is a feature** - Bake it in, don't bolt it on
+4. **Partner with operations** - DevOps is a culture, not a role
+
+This platform now powers over 500 hospitals and processes 2 billion API calls monthly.

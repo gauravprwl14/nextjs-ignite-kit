@@ -6,10 +6,18 @@ const withNextra = nextra({
   defaultShowCopyCode: true,
 });
 
-
-
 const nextConfig: NextConfig = {
-  /* config options here */
+  output: "standalone",
+
+  /**
+   * Configure image domains and optimization settings
+   * Note: Instrumentation is automatically enabled when src/instrumentation.ts exists
+   * @see https://nextjs.org/docs/app/building-your-application/optimizing/instrumentation
+   */
+  images: {
+    unoptimized: false,
+    remotePatterns: [],
+  },
 };
 
 export default withNextra(nextConfig);

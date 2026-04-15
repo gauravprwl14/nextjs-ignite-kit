@@ -1,0 +1,76 @@
+---
+title: "Case Study: Fintech Platform Redesign"
+date: "2025-11-20"
+author: "Gaurav P."
+category: "case-studies"
+excerpt: "How we reduced latency by 60% and improved user retention through strategic re-architecture."
+coverImage: "/images/blog/fintech-case.jpg"
+---
+
+# Case Study: Fintech Platform Redesign
+
+This case study documents a major platform redesign for a mid-size fintech company processing $2B+ in annual transactions.
+
+## The Challenge
+
+The client faced several critical issues:
+
+- **Latency**: Average API response time of 800ms
+- **Scaling**: System buckled during peak hours
+- **Developer velocity**: Deployments took 4+ hours
+- **User churn**: 15% monthly drop-off at checkout
+
+## Discovery Phase
+
+### Technical Audit Findings
+
+| Area         | Issue                        | Severity |
+| ------------ | ---------------------------- | -------- |
+| Database     | N+1 queries everywhere       | Critical |
+| Caching      | No caching layer             | High     |
+| Architecture | Monolith with tight coupling | High     |
+| Frontend     | 3MB JavaScript bundle        | Medium   |
+
+### Stakeholder Interviews
+
+- Engineering team felt blocked by legacy code
+- Product team couldn't ship features fast enough
+- Finance team worried about infrastructure costs
+
+## Solution Architecture
+
+### Phase 1: Quick Wins (Month 1-2)
+
+- Introduced Redis caching layer
+- Optimized critical database queries
+- Implemented CDN for static assets
+
+**Result**: 40% latency reduction
+
+### Phase 2: Core Restructuring (Month 3-6)
+
+- Decomposed monolith into 5 core services
+- Implemented event-driven architecture
+- Migrated to Kubernetes
+
+### Phase 3: Frontend Modernization (Month 7-8)
+
+- Code splitting and lazy loading
+- Progressive Web App features
+- Real-time updates via WebSockets
+
+## Results
+
+After 8 months:
+
+- **Latency**: 800ms → 320ms (60% reduction)
+- **Deployments**: 4 hours → 15 minutes
+- **User retention**: +23% improvement
+- **Infrastructure costs**: -35%
+
+## Key Learnings
+
+1. **Measure first** - Data drove every decision
+2. **Quick wins build trust** - Early results secured buy-in
+3. **Parallel workstreams** - Backend and frontend progressed together
+4. **Communication** - Weekly stakeholder updates were essential

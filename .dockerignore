@@ -1,0 +1,15 @@
+node_modules
+.next
+out
+build
+.git
+.gitignore
+.dockerignore
+README.md
+docs
+tests
+coverage
+.cache
+.npm
+**/*.log
+.DS_Store

@@ -1,8 +1,18 @@
+// Forced update to resolve stale import cache
 "use client";
 
 import { motion, Variants } from "framer-motion";
-import { ArrowRight, Code, Cpu, Globe, Layers, Zap } from "lucide-react";
+import { ArrowRight, Cpu, Globe, Layers, Zap, Users, Search, Target } from "lucide-react";
 import Link from "next/link";
+import portfolioData from "../../content/portfolio.json";
+import { ValueProposition } from "@/components/home/ValueProposition";
+import { TechStack } from "@/components/home/TechStack";
+import { ArchitectureSpotlight } from "@/components/home/ArchitectureSpotlight";
+import { ExpertiseMatrix } from "@/components/home/ExpertiseMatrix";
+import { LandingStats } from "@/components/home/LandingStats";
+import { ErrorBoundary } from "@/components/common/ErrorBoundary";
+import { useTranslation } from "@/components/providers/I18nProvider";
+import { HeroSelector } from "@/components/hero";
 
 const container: Variants = {
   hidden: { opacity: 0 },
@@ -20,159 +30,201 @@ const item: Variants = {
   show: { y: 0, opacity: 1, transition: { type: "spring", stiffness: 50 } },
 };
 
+/**
+ * Landing Page Component.
+ * Serves as the main entry point for the portfolio, featuring:
+ * - Hero section with i18n support
+ * - Strategic Dashboard visualization
+ * - Services and Competencies grid
+ */
 export default function Home() {
+  const { hero, services, projects } = portfolioData;
+  const { t } = useTranslation();
+
   return (
-    <main className="min-h-screen p-6 md:p-12 lg:p-24 overflow-hidden relative">
-      {/* Background Ambience */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
-        <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px] mix-blend-screen animate-pulse" />
-        <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-blue-900/10 rounded-full blur-[120px] mix-blend-screen" />
-      </div>
+    <main className="min-h-screen overflow-hidden relative">
+      {/* Hero Section - Dynamic via HeroSelector */}
+      <HeroSelector />
 
-      <motion.div
-        variants={container}
-        initial="hidden"
-        animate="show"
-        className="max-w-7xl mx-auto space-y-16"
-      >
-        {/* Hero Section */}
-        <section className="relative z-10 flex flex-col justify-center min-h-[60vh]">
-          <motion.div variants={item}>
-            <span className="inline-block py-1 px-3 rounded-full border border-primary/30 bg-primary/10 text-primary text-xs font-medium tracking-wider mb-6">
-              AVAILABLE FOR NEW ENGAGEMENTS
-            </span>
+      <div className="p-6 md:p-12 lg:p-24">
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="max-w-7xl mx-auto space-y-16"
+        >
+          <LandingStats stats={hero.stats} />
+
+        <ErrorBoundary>
+          <ArchitectureSpotlight />
+        </ErrorBoundary>
+
+        <ValueProposition />
+        
+        <ExpertiseMatrix />
+
+        <TechStack />
+
+        {/* Services / Engagement Models */}
+        <section>
+          <motion.div variants={item} className="mb-12">
+            <h2 className="text-3xl font-bold font-heading mb-4">Engagement Models</h2>
+            <p className="text-muted-foreground max-w-2xl">
+              Flexible partnership models designed to deliver high-impact technical leadership where you need it most.
+            </p>
           </motion.div>
 
-          <motion.h1
-            variants={item}
-            className="text-6xl md:text-8xl font-heading font-bold tracking-tight leading-none mb-6 bg-gradient-to-r from-foreground via-foreground/80 to-foreground/40 bg-clip-text text-transparent"
-          >
-            Principal <br />
-            <span className="text-primary/90">Technical Consultant</span>
-          </motion.h1>
-
-          <motion.p
-            variants={item}
-            className="text-xl md:text-2xl text-muted-foreground max-w-2xl font-light leading-relaxed mb-10"
-          >
-            Architecting digital excellence for enterprise clients.
-            I bridge the gap between complex business requirements and
-            cutting-edge technical solutions.
-          </motion.p>
-
-          <motion.div variants={item} className="flex gap-4">
-            <Link href="/blog" className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-md bg-primary px-8 font-medium text-primary-foreground shadow transition-all hover:bg-primary/90 hover:ring-2 hover:ring-primary hover:ring-offset-2 hover:ring-offset-background">
-              <span className="mr-2">Explore Thoughts</span>
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-            </Link>
-            <button className="h-12 px-8 rounded-md border border-input bg-background/50 backdrop-blur-sm hover:bg-accent hover:text-accent-foreground transition-colors">
-              Contact Me
-            </button>
-          </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {services.map((service) => {
+              let Icon = Search;
+              if (service.icon === 'Users') Icon = Users;
+              else if (service.icon === 'Layers') Icon = Layers;
+              
+              return (
+                <motion.div
+                  key={service.id}
+                  variants={item}
+                  className="glass-panel p-8 rounded-2xl group hover:border-primary/30 transition-colors"
+                >
+                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6 text-primary group-hover:scale-110 transition-transform">
+                    <Icon className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-xl font-bold font-heading mb-3">{service.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {service.description}
+                  </p>
+                </motion.div>
+              );
+            })}
+          </div>
         </section>
 
-        {/* Bento Grid Section */}
-        <section className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[minmax(200px,auto)]">
-          {/* Large Card: Core Philosophy */}
-          <motion.div
-            variants={item}
-            className="md:col-span-2 glass-panel p-8 rounded-2xl relative overflow-hidden group"
-          >
-            <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
-              <Layers className="w-32 h-32" />
-            </div>
-            <h3 className="text-2xl font-bold font-heading mb-4">Strategic Architecture</h3>
-            <p className="text-muted-foreground text-lg max-w-lg relative z-10">
-              I specialize in designing scalable, maintainable systems that drive business growth.
-              From microservices migration to cloud-native adoption, I provide the roadmap and the code.
+        {/* Core Competencies / Bento Grid */}
+        <section>
+          <motion.div variants={item} className="mb-12">
+            <h2 className="text-3xl font-bold font-heading mb-4">Core Competencies</h2>
+            <p className="text-muted-foreground max-w-2xl">
+              Deep expertise across the modern technical landscape, from distributed systems to engineering culture.
             </p>
           </motion.div>
 
-          {/* Tall Card: Tech Stack */}
-          <motion.div
-            variants={item}
-            className="md:row-span-2 glass-panel p-8 rounded-2xl flex flex-col justify-between group"
-          >
-            <div>
-              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6 text-primary">
-                <Cpu className="w-6 h-6" />
+          <div className="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-6 h-auto md:h-[600px]">
+             {/* Strategy Card */}
+            <motion.div
+              variants={item}
+              className="md:col-span-2 md:row-span-2 glass-panel p-8 rounded-2xl relative overflow-hidden group flex flex-col justify-between"
+            >
+              <div className="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity">
+                <Target className="w-48 h-48" />
               </div>
-              <h3 className="text-xl font-bold font-heading mb-2">Technical Leadership</h3>
-              <p className="text-sm text-muted-foreground mb-6">
-                Leading teams to deliver high-quality software with velocity.
-              </p>
-              <ul className="space-y-3 text-sm text-muted-foreground">
-                <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                  System Design
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                  Team Mentorship
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                  Code Reviews
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                  Agile Processes
-                </li>
-              </ul>
-            </div>
-          </motion.div>
-
-          {/* Medium Card: Recent Work */}
-          <motion.div
-            variants={item}
-            className="glass-panel p-8 rounded-2xl group cursor-pointer"
-          >
-            <div className="w-12 h-12 rounded-lg bg-blue-500/10 flex items-center justify-center mb-6 text-blue-400">
-              <Globe className="w-6 h-6" />
-            </div>
-            <h3 className="text-xl font-bold font-heading mb-2">Global Deployments</h3>
-            <p className="text-sm text-muted-foreground">
-              Orchestrated multi-region deployments for Fortune 500 clients, ensuring 99.99% availability.
-            </p>
-          </motion.div>
-
-          {/* Medium Card: Innovation */}
-          <motion.div
-            variants={item}
-            className="glass-panel p-8 rounded-2xl group cursor-pointer"
-          >
-            <div className="w-12 h-12 rounded-lg bg-purple-500/10 flex items-center justify-center mb-6 text-purple-400">
-              <Zap className="w-6 h-6" />
-            </div>
-            <h3 className="text-xl font-bold font-heading mb-2">Innovation & AI</h3>
-            <p className="text-sm text-muted-foreground">
-              Integrating GenAI workflows to optimize internal developer platforms.
-            </p>
-          </motion.div>
-
-          {/* Wide Card: Latest Article */}
-          <motion.div
-            variants={item}
-            className="md:col-span-2 glass-panel p-8 rounded-2xl flex flex-col md:flex-row gap-6 items-center"
-          >
-            <div className="flex-1">
-              <div className="flex items-center gap-2 text-primary text-xs font-bold tracking-widest uppercase mb-2">
-                <Code className="w-3 h-3" />
-                Latest Insight
+              <div>
+                <div className="w-12 h-12 rounded-lg bg-blue-500/10 flex items-center justify-center mb-6 text-blue-400">
+                  <Globe className="w-6 h-6" />
+                </div>
+                <h3 className="text-2xl font-bold font-heading mb-4">Cloud Native Strategy</h3>
+                <p className="text-muted-foreground text-lg relative z-10 mb-6">
+                  Guiding enterprises through the complexities of cloud adoption. I maintain a vendor-neutral approach while leveraging best-in-class solutions for your specific needs.
+                </p>
+                <ul className="space-y-2 text-sm text-muted-foreground/80">
+                  <li className="flex items-center gap-2">✔ Multi-Cloud Architecture</li>
+                  <li className="flex items-center gap-2">✔ Kubernetes & Containerization</li>
+                  <li className="flex items-center gap-2">✔ Cost Optimization (FinOps)</li>
+                </ul>
               </div>
-              <h3 className="text-2xl font-bold font-heading mb-2">The Future of Serverless</h3>
-              <p className="text-muted-foreground mb-4">
-                Exploring the trade-offs between cold starts and cost optimization in modern cloud architectures.
+            </motion.div>
+
+            {/* Architecture Card */}
+            <motion.div
+              variants={item}
+              className="md:col-span-1 md:row-span-1 glass-panel p-6 rounded-2xl group"
+            >
+              <div className="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center mb-4 text-emerald-400">
+                <Cpu className="w-5 h-5" />
+              </div>
+              <h3 className="text-lg font-bold font-heading mb-2">Distributed Systems</h3>
+              <p className="text-xs text-muted-foreground">
+                Designing event-driven architectures that scale to millions of concurrent users.
               </p>
-              <Link href="/blog" className="text-sm font-medium hover:text-primary transition-colors">
-                Read Article &rarr;
+            </motion.div>
+
+            {/* AI Card */}
+            <motion.div
+              variants={item}
+              className="md:col-span-1 md:row-span-1 glass-panel p-6 rounded-2xl group"
+            >
+               <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4 text-primary">
+                <Zap className="w-5 h-5" />
+              </div>
+              <h3 className="text-lg font-bold font-heading mb-2">AI Integration</h3>
+              <p className="text-xs text-muted-foreground">
+                Pragmatic implementation of RAG and LLM workflows in enterprise environments.
+              </p>
+            </motion.div>
+
+            {/* Leadership Card */}
+             <motion.div
+              variants={item}
+              className="md:col-span-2 md:row-span-1 glass-panel p-8 rounded-2xl flex items-center justify-between group"
+            >
+              <div>
+                <h3 className="text-xl font-bold font-heading mb-2">Engineering Culture</h3>
+                <p className="text-sm text-muted-foreground max-w-sm">
+                  Building high-velocity teams through psychological safety, clear career ladders, and autonomous delivery structures.
+                </p>
+              </div>
+              <div className="hidden md:flex w-16 h-16 rounded-full bg-white/5 items-center justify-center">
+                 <Users className="w-8 h-8 text-white/40" />
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Selected Work Preview */}
+        <section>
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+            <motion.div variants={item}>
+              <h2 className="text-3xl font-bold font-heading mb-4">Selected Work</h2>
+              <p className="text-muted-foreground max-w-xl">
+                Case studies of recent architectural transformations and platform launches.
+              </p>
+            </motion.div>
+            <motion.div variants={item}>
+               <Link href="/portfolio" className="text-sm font-medium text-primary hover:text-primary/80 transition-colors flex items-center gap-2">
+                View All Case Studies <ArrowRight className="w-4 h-4" />
               </Link>
-            </div>
-            <div className="w-full md:w-1/3 h-32 rounded-lg bg-gradient-to-br from-neutral-900 to-neutral-800 border border-white/5" />
-          </motion.div>
+            </motion.div>
+          </div>
 
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {projects.slice(0, 3).map((project) => (
+              <motion.div
+                key={project.id}
+                variants={item}
+                className="glass-panel p-8 rounded-2xl group cursor-pointer hover:bg-white/5 transition-colors"
+              >
+                <div className="text-xs font-bold tracking-widest text-primary/80 mb-4 uppercase">
+                  {project.techStack[0]}
+                </div>
+                <h3 className="text-xl font-bold font-heading mb-3 group-hover:text-primary transition-colors">
+                  {project.title}
+                </h3>
+                <p className="text-sm text-muted-foreground mb-6 line-clamp-3">
+                  {project.description}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {project.techStack.slice(1).map((tech) => (
+                    <span key={tech} className="text-[10px] px-2 py-1 rounded-full bg-white/5 border border-white/10 text-white/50">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </section>
-      </motion.div>
+        </motion.div>
+      </div>
     </main>
   );
 }

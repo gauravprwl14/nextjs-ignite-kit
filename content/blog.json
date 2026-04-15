@@ -1,0 +1,181 @@
+{
+  "categories": [
+    { "id": "all", "name": "All", "slug": "all" },
+    { "id": "technical-insights", "name": "Technical Insights", "slug": "technical-insights" },
+    { "id": "architecture", "name": "Architecture & Design", "slug": "architecture" },
+    { "id": "leadership", "name": "Leadership & Teams", "slug": "leadership" },
+    { "id": "case-studies", "name": "Case Studies", "slug": "case-studies" },
+    { "id": "industry-trends", "name": "Industry Trends", "slug": "industry-trends" }
+  ],
+  "posts": [
+    {
+      "slug": "future-of-serverless",
+      "title": "The Future of Serverless",
+      "excerpt": "Exploring the trade-offs between cold starts and cost optimization in modern cloud architectures. How enterprises are adapting their strategies.",
+      "category": "technical-insights",
+      "date": "2025-12-09",
+      "author": {
+        "name": "Gaurav P.",
+        "avatar": "/images/authors/gaurav.jpg"
+      },
+      "coverImage": "/images/blog/serverless.png",
+      "featured": true,
+      "readingTime": "5 min"
+    },
+    {
+      "slug": "microservices-migration-strategies",
+      "title": "Microservices Migration: A Strategic Approach",
+      "excerpt": "Breaking down monoliths doesn't have to be painful. Here's how Fortune 500 companies are doing it right.",
+      "category": "architecture",
+      "date": "2025-12-05",
+      "author": {
+        "name": "Gaurav P.",
+        "avatar": "/images/authors/gaurav.jpg"
+      },
+      "coverImage": "/images/blog-placeholder.png",
+      "featured": true,
+      "readingTime": "8 min"
+    },
+    {
+      "slug": "leading-distributed-teams",
+      "title": "Leading Distributed Engineering Teams",
+      "excerpt": "Lessons learned from managing teams across 5 time zones. Communication patterns that actually work.",
+      "category": "leadership",
+      "date": "2025-11-28",
+      "author": {
+        "name": "Gaurav P.",
+        "avatar": "/images/authors/gaurav.jpg"
+      },
+      "coverImage": "/images/blog-placeholder.png",
+      "featured": true,
+      "readingTime": "6 min"
+    },
+    {
+      "slug": "fintech-platform-redesign",
+      "title": "Case Study: Fintech Platform Redesign",
+      "excerpt": "How we reduced latency by 60% and improved user retention through strategic re-architecture.",
+      "category": "case-studies",
+      "date": "2025-11-20",
+      "author": {
+        "name": "Gaurav P.",
+        "avatar": "/images/authors/gaurav.jpg"
+      },
+      "coverImage": "/images/blog-placeholder.png",
+      "featured": true,
+      "readingTime": "10 min"
+    },
+    {
+      "slug": "ai-in-enterprise",
+      "title": "AI Integration in Enterprise Systems",
+      "excerpt": "Practical approaches to integrating GenAI into existing enterprise workflows without disruption.",
+      "category": "industry-trends",
+      "date": "2025-11-15",
+      "author": {
+        "name": "Gaurav P.",
+        "avatar": "/images/authors/gaurav.jpg"
+      },
+      "coverImage": "/images/blog-placeholder.png",
+      "featured": false,
+      "readingTime": "7 min"
+    },
+    {
+      "slug": "design-systems-at-scale",
+      "title": "Building Design Systems at Scale",
+      "excerpt": "Lessons from implementing design systems across multiple product teams and codebases.",
+      "category": "architecture",
+      "date": "2025-11-10",
+      "author": {
+        "name": "Gaurav P.",
+        "avatar": "/images/authors/gaurav.jpg"
+      },
+      "coverImage": "/images/blog-placeholder.png",
+      "featured": false,
+      "readingTime": "6 min"
+    },
+    {
+      "slug": "technical-debt-management",
+      "title": "Strategic Technical Debt Management",
+      "excerpt": "Not all technical debt is bad. Learn how to classify, prioritize, and systematically address it.",
+      "category": "technical-insights",
+      "date": "2025-11-05",
+      "author": {
+        "name": "Gaurav P.",
+        "avatar": "/images/authors/gaurav.jpg"
+      },
+      "coverImage": "/images/blog-placeholder.png",
+      "featured": false,
+      "readingTime": "5 min"
+    },
+    {
+      "slug": "engineering-culture",
+      "title": "Building a High-Performance Engineering Culture",
+      "excerpt": "Culture isn't about perks. It's about psychological safety, autonomy, and continuous learning.",
+      "category": "leadership",
+      "date": "2025-10-28",
+      "author": {
+        "name": "Gaurav P.",
+        "avatar": "/images/authors/gaurav.jpg"
+      },
+      "coverImage": "/images/blog-placeholder.png",
+      "featured": false,
+      "readingTime": "8 min"
+    },
+    {
+      "slug": "event-driven-architecture",
+      "title": "Event-Driven Architecture in Practice",
+      "excerpt": "Moving from request-response to event-driven systems. Real-world patterns and pitfalls to avoid.",
+      "category": "architecture",
+      "date": "2025-10-20",
+      "author": {
+        "name": "Gaurav P.",
+        "avatar": "/images/authors/gaurav.jpg"
+      },
+      "coverImage": "/images/blog-placeholder.png",
+      "featured": false,
+      "readingTime": "7 min"
+    },
+    {
+      "slug": "react-server-components",
+      "title": "React Server Components: A Deep Dive",
+      "excerpt": "Understanding the new mental model for React. When to use client vs server components.",
+      "category": "technical-insights",
+      "date": "2025-10-15",
+      "author": {
+        "name": "Gaurav P.",
+        "avatar": "/images/authors/gaurav.jpg"
+      },
+      "coverImage": "/images/blog-placeholder.png",
+      "featured": false,
+      "readingTime": "9 min"
+    },
+    {
+      "slug": "healthcare-api-platform",
+      "title": "Case Study: Healthcare API Platform",
+      "excerpt": "Building a HIPAA-compliant API gateway serving 50M+ daily requests with 99.99% uptime.",
+      "category": "case-studies",
+      "date": "2025-10-08",
+      "author": {
+        "name": "Gaurav P.",
+        "avatar": "/images/authors/gaurav.jpg"
+      },
+      "coverImage": "/images/blog-placeholder.png",
+      "featured": false,
+      "readingTime": "12 min"
+    },
+    {
+      "slug": "edge-computing-future",
+      "title": "The Rise of Edge Computing",
+      "excerpt": "How edge computing is reshaping application architecture. Use cases beyond CDNs.",
+      "category": "industry-trends",
+      "date": "2025-10-01",
+      "author": {
+        "name": "Gaurav P.",
+        "avatar": "/images/authors/gaurav.jpg"
+      },
+      "coverImage": "/images/blog-placeholder.png",
+      "featured": false,
+      "readingTime": "6 min"
+    }
+  ]
+}
+

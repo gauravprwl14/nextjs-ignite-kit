@@ -19,12 +19,12 @@ export function BlogList({ initialPosts }: BlogListProps) {
     const [selectedTag, setSelectedTag] = useState<string | null>(null);
 
     // Extract all unique tags
-    const allTags = Array.from(new Set(initialPosts.flatMap(post => post.tags)));
+    const allTags = Array.from(new Set(initialPosts.flatMap(post => post.tags || [])));
 
     const filteredPosts = initialPosts.filter(post => {
         const matchesSearch = post.title.toLowerCase().includes(search.toLowerCase()) ||
             post.excerpt.toLowerCase().includes(search.toLowerCase());
-        const matchesTag = selectedTag ? post.tags.includes(selectedTag) : true;
+        const matchesTag = selectedTag ? (post.tags || []).includes(selectedTag) : true;
 
         return matchesSearch && matchesTag;
     });

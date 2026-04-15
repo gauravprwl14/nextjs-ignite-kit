@@ -1,0 +1,78 @@
+---
+title: "React Server Components: A Deep Dive"
+date: "2025-10-15"
+author: "Gaurav P."
+category: "technical-insights"
+excerpt: "Understanding the new mental model for React. When to use client vs server components."
+coverImage: "/images/blog/rsc.jpg"
+---
+
+# React Server Components: A Deep Dive
+
+React Server Components (RSC) represent the biggest shift in React since hooks. They fundamentally change how we think about rendering.
+
+## The Mental Model Shift
+
+**Before RSC:**
+
+- All components run on client
+- Data fetching through useEffect or libraries
+- Hydration of all JavaScript
+
+**After RSC:**
+
+- Components can run on server only
+- Direct data access without APIs
+- Zero JavaScript for server components
+
+## When to Use Server Components
+
+### Use Server Components For:
+
+- Data fetching from databases
+- Static content rendering
+- Large dependencies (markdown parsers, etc.)
+- Sensitive operations (API keys, etc.)
+
+### Use Client Components For:
+
+- Interactivity (onClick, onChange)
+- Browser APIs (localStorage, etc.)
+- State management (useState, useEffect)
+- Third-party client libraries
+
+## The "use client" Directive
+
+```tsx
+// This is a Server Component by default
+export default async function BlogPost({ slug }: { slug: string }) {
+  const post = await db.posts.findOne({ slug }); // Direct DB access!
+
+  return (
+    <article>
+      <h1>{post.title}</h1>
+      <LikeButton postId={post.id} /> {/* Client Component */}
+    </article>
+  );
+}
+
+// components/LikeButton.tsx
+("use client"); // This makes it a Client Component
+
+export function LikeButton({ postId }: { postId: string }) {
+  const [liked, setLiked] = useState(false);
+  return <button onClick={() => setLiked(!liked)}>♥</button>;
+}
+```
+
+## Composition Patterns
+
+Server Components can render Client Components, but not vice versa. Plan your component tree carefully.
+
+### Pattern: Push State Down
+
+Keep state as low as possible. Don't make a whole page a Client Component just for one button.
+
+## The Future is Hybrid
+
+RSC isn't about choosing server OR client. It's about choosing the right execution environment for each piece of your UI.
