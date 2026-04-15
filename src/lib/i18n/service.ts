@@ -18,22 +18,32 @@ const translationCache: Map<Locale, Translations> = new Map();
 const mockTranslations: Record<Locale, Translations> = {
   en: {
     hero: {
-      title: 'Architecting High-Performance User Experiences',
-      subtitle: 'Building specialized, scalable web applications with a focus on modern design and technical excellence.',
+      title: "I build systems that scale. You focus on growth.",
+      subtitle:
+        "Principal Technical Consultant with a decade of experience transforming complex challenges into elegant, scalable architectures.",
+      badge: "Available for Strategic Engagements",
     },
     common: {
-      getStarted: 'Get Started',
-      learnMore: 'Learn More',
+      getStarted: "Get Started",
+      learnMore: "Learn More",
+      startProject: "Start a Project",
+      viewWork: "View Case Studies",
+      contactMe: "Get in Touch",
     },
   },
   hi: {
     hero: {
-      title: 'उच्च प्रदर्शन उपयोगकर्ता अनुभवों का निर्माण',
-      subtitle: 'आधुनिक डिजाइन और तकनीकी उत्कृष्टता पर ध्यान केंद्रित करते हुए विशेष, स्केलेबल वेब अनुप्रयोगों का निर्माण।',
+      title: "मैं स्केलेबल सिस्टम बनाता हूं। आप विकास पर ध्यान दें।",
+      subtitle:
+        "एक दशक के अनुभव के साथ प्रिंसिपल टेक्निकल कंसल्टेंट, जटिल चुनौतियों को सुंदर, स्केलेबल आर्किटेक्चर में बदलता है।",
+      badge: "रणनीतिक सहभागिता के लिए उपलब्ध",
     },
     common: {
-      getStarted: 'शुरू करें',
-      learnMore: 'और जानें',
+      getStarted: "शुरू करें",
+      learnMore: "और जानें",
+      startProject: "प्रोजेक्ट शुरू करें",
+      viewWork: "केस स्टडीज देखें",
+      contactMe: "संपर्क करें",
     },
   },
 };
